@@ -44,6 +44,7 @@ while (<FILE>) {
   # read XML file
   $data = $xml->XMLin($gecode);
   # access XML data
+  #krasser gruppenwechsel
   if ( $gw ne $user ) {
 	if ( $gw ne "" ) {
 		print FILE2 "</Folder>\n";
