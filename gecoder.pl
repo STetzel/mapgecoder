@@ -5,6 +5,7 @@ use XML::Simple;
 use Data::Dumper;
 my $style="";
 my $gw="";
+my $gw2="";
 `cat /tmp/shd.txt|sort > /tmp/shdordered.txt`;
 open FILE2, "> /tmp/shdordered.kml" or die $!;
 open FILE, "/tmp/shdordered.txt" or die $!;
@@ -33,11 +34,6 @@ print FILE2 <<START;
         </Icon>
  </IconStyle>
  </Style>
- <open>1</open>
- <Folder> 
-   <open>1</open>
-   <name>SHD Kunden</name>
-   <description>Kundenbesuche</description>
 START
 while (<FILE>) {
   my ($user,$kunde,$strasse,$nummer,$stadt,$land,$beschreibung) = split(";",$_);
@@ -48,6 +44,18 @@ while (<FILE>) {
   # read XML file
   $data = $xml->XMLin($gecode);
   # access XML data
+  if ( $gw ne $user ) {
+	if ( $gw ne "" ) {
+		print FILE2 "</Folder>\n";
+	}
+	print FILE2 <<GWANFANG;
+   <Folder> 
+   <open>1</open>
+   <name>$user Kunden</name>
+   <description>$user Kundenbesuche</description>
+GWANFANG
+	$gw = $user; 
+   };
 print FILE2 <<DATEN;
   <Placemark>
     <name>$kunde</name>
@@ -58,7 +66,9 @@ print FILE2 <<DATEN;
     </Point>
   </Placemark>
 DATEN
+ 
 };
+
 print FILE2 <<END;
 </Folder>
 </Document>
