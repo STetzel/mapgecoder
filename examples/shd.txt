@@ -1,0 +1,5 @@
+aaa;test;Alexanderplatz;9;Berlin;shopping !!!
+bbb;test2;Hauptstr.;30;69117 Heidelberg;also shopping !!!
+ccc;test3;Badstr.;8-12;70372 Stuttgart;also again !!!
+aaa;lidl1;Holzmarktstr.;3;10179 Berlin;eating
+bbb;lidl2;Choriner Str.;64;10435 Berlin;also eating
