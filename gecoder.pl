@@ -6,9 +6,9 @@ use Data::Dumper;
 my $style="";
 my $gw="";
 my $gw2="";
-`cat /tmp/shd.txt|sort > /tmp/shdordered.txt`;
-open FILE2, "> /tmp/shdordered.kml" or die $!;
-open FILE, "/tmp/shdordered.txt" or die $!;
+`cat /tmp/rogge.txt|sort > /tmp/roggeordered.txt`;
+open FILE2, "> /tmp/roggeordered.kml" or die $!;
+open FILE, "/tmp/roggeordered.txt" or die $!;
 print FILE2 <<START;
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
